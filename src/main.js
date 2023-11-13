@@ -41,7 +41,7 @@ fetchData().then(() => {
     console.log("user: ", store.state.currentUser);
   const app = createApp(App);
   app.use(store);
-  console.log("currenuser", store.state.currentUser);
+  console.log("currentuser", store.state.currentUser);
       const currentUser = store.state.currentUser;
       /*eslint-disable*/
       const userId = currentUser.id;
