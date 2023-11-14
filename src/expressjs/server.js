@@ -49,7 +49,7 @@ const jwtSecretKey = process.env.JWT_SECRET;
 
 app.use(
   cors({
-    origin: ["https://c964nzv2-8080.euw.devtunnels.ms", "*"], // Replace with actual domains
+    origin: ["https://6791q0wp-8080.euw.devtunnels.ms", "*"], // Replace with actual domains
     credentials: true, // If your frontend needs to send cookies or use authentication, set this to true
   })
 );
@@ -113,7 +113,7 @@ const clean = async () => {
   }
 };
 
-app.post("/api/users/reset-password-request", async (req, res) => {
+app.post("https://6791q0wp-8080.euw.devtunnels.ms/api/users/reset-password-request", async (req, res) => {
   try {
     const { email } = req.body;
 

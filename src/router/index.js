@@ -25,9 +25,10 @@ import bookmarkSaves from '../components/profilebutton/bookmarkSaves.vue';
 import profileAndereUser from '../components/profilebutton/profileAndereUser.vue';
 
 
-/* import PasswordForgottenComponent from '../components/PasswordForgottenComponent.vue';
-import ResetPassword from '../components/ResetPasswordComponent.vue' */
-/* 
+import PasswordForgottenComponent from '../components/PasswordForgottenComponent.vue';
+import ResetPassword from '../components/ResetPasswordComponent.vue'
+
+/*
 import store from '../store/store.js'
 */
 
@@ -106,14 +107,14 @@ const routes = [
   },
   //Reset password
   {
-    path: "/resetPassword",
-    name: "ResetPassword",
-    component: ResetPassword
-  },
-  {
-    path: "/resetPasswordConfirm",
+    path: "/ResetPasswordConfirm",
     name: "ResetPasswordConfirm",
     component: PasswordForgottenComponent
+  },
+  {
+    path: "/resetPassword",
+    name: "resetPassword",
+    component: ResetPassword
   },
 
   // Swipe-Profil-Komponente
@@ -163,7 +164,7 @@ const router = createRouter({
  router.beforeEach((to, from, next) => {
   const token = store.state.currentUser?.token;
   // If the route is not the login route and there's no token, redirect to the login route
-  if (to.path !== '/login' && !token) {
+  if (to.path !== '/login' && !token && to.path!== '/resetPasswordConfirm') {
     next('/login');
   } else {
     next();

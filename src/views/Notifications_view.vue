@@ -10,7 +10,6 @@
       :key="notificantion.messageId"
       :id="notificantion.messageId"
       :notificationObjekt="notificantion"
-
     />
   </div>
 </template>

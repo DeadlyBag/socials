@@ -32,7 +32,8 @@
             <input type="submit" class="btn btn-primary" value="Login">
             &nbsp;&nbsp;&nbsp;&nbsp;
             <router-link to="/register" class="card-link">Need and account?</router-link>
-            <router-link to="/resetPassword" class="card-link">Forgot your password?</router-link>
+            <router-link to="/ResetPasswordConfirm" class="card-link">Forgot your password?</router-link>
+
           </form>
         </div>
       </div>
@@ -44,6 +45,8 @@
 import { iconColor } from '../components/farben';
 
 export default {
+  components:{
+  },
 
   data() {
     return {

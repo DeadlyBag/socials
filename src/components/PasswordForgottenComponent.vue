@@ -19,7 +19,6 @@
                   class="form-control"
                 >
               </div>
-              <error-messages :errors="errorMessages" v-if="errorMessages.length" />
               <button type="submit" class="btn btn-primary">Submit</button>
               <router-link to="/login" class="card-link">Back to Login</router-link>
             </form>
@@ -30,21 +29,24 @@
   </template>
   
   <script>
+/*
+
+FIX HIER, FINDET RESET PASSWORD API ENDPOINT NICHT 404 FEHLER IDK WHY
+
+
+*/
   export default {
     data() {
       return {
         email: "",
-        errorMessages: [],
       };
     },
     methods: {
       async resetPassword() {
         // Clear any previous error messages
-        this.errorMessages = [];
-  
         try {
           // Send a POST request to your server endpoint for password reset requests
-          const response = await fetch("/api/users/reset-password-request", {
+          const response = await fetch("https://6791q0wp-8080.euw.devtunnels.ms/api/users/reset-password-request", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -56,16 +58,10 @@
             // Password reset request succeeded
             // You can display a success message or navigate to a confirmation page
             console.log("Password reset email sent");
-          } else {
-            // Password reset request failed
-            // Handle different error scenarios based on response status or message
-            const data = await response.json();
-            this.errorMessages.push(data.message);
-          }
+          } 
         } catch (error) {
           // Handle network or other errors
           console.error("Error initiating password reset:", error);
-          this.errorMessages.push("An error occurred. Please try again later.");
         }
       },
     },
